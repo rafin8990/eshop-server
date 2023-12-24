@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express")
 const cors = require("cors");
 const session = require("express-session");
 const bodyParser = require("body-parser");
@@ -95,7 +95,7 @@ async function run() {
         const user = await userCollection.findOne({ email, password });
         if (user) {
           req.session.user = user;
-          res.status(200).send('Login successful');
+          res.status(200).send({acknowledged:true});
         } else {
           res.status(401).send('Invalid credentials');
         }
